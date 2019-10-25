@@ -1,0 +1,89 @@
+.flex {
+  display: flex;
+}
+
+.setContainer {
+  flex-wrap: wrap;
+  justify-content: center;
+  color: #4a4a4a;
+  margin: 2em auto;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.set {
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  flex-basis: calc(33.33% - 2em);
+  max-width: 405px;
+  border: 1px solid lightgray;
+  box-sizing: border-box;
+  margin: 1em;
+  padding: 1em;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.set:hover {
+  transform: scale(1.1);
+}
+
+.releaseInfo {
+  margin-left: 1em;
+}
+
+p {
+  font-size: 1.5em;
+  font-weight: 300;
+  margin: 0;
+  color: #363636;
+}
+
+.mainImageContainer {
+  padding-top: 1em;
+  text-align: center;
+  height: 140px;
+  box-sizing: border-box;
+}
+
+.listContent {
+  line-height: 1.8em;
+}
+
+ul {
+  margin-left: 2em;
+  margin-top: 1em;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.mainImage {
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  box-sizing: border-box;
+}
+
+.logoImage {
+  width: 48px;
+}
+
+.content {
+  padding: 1.5em;
+}
+
+.releaseAndLogo {
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@media screen and (min-width: 1280px) {
+  .setContainer {
+    max-width: 1152px;
+    width: 1152px;
+  }
+}
