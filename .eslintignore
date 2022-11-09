@@ -1,0 +1,10 @@
+docs
+internals
+build
+coverage
+node_modules
+.vscode
+.idea
+server
+package-lock.json
+package.json
