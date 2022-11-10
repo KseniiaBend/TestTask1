@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addCards } from 'src/actions/cards';
 import { CARDS_URL } from 'src/api-config';
 import { handleFetch } from 'src/helpers/api-helper';
-import CardsComponent from 'src/components/cards/CardsComponent';
+import CardsComponent from 'src/components/cards';
 
 const CardsContainer = () => {
   const { setCode } = useParams() || {};

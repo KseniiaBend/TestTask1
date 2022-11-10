@@ -1,12 +1,12 @@
 import { setLoading } from 'src/actions/app';
-import { handleFetchPropsInterface } from 'src/types/api';
+import { handleFetchProps } from 'src/types/api';
 
 export const handleFetch = async ({
   dispatch,
   action,
   url,
   type
-}: handleFetchPropsInterface): Promise<any> => {
+}: handleFetchProps): Promise<any> => {
   dispatch(setLoading(true));
   const response = await fetch(url);
 

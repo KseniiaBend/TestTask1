@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addSets } from 'src/actions/sets';
 import { handleFetch } from 'src/helpers/api-helper';
 import { SETS_URL } from 'src/api-config';
-import SetsComponent from 'src/components/sets/SetsComponent';
+import SetsComponent from 'src/components/sets';
 
 const SetsContainer = () => {
   const dispatch = useDispatch();
