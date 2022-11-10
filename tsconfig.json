@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "outDir": "./public/ts", // path to output directory
+    "sourceMap": true, // allow sourcemap support
+    "strictNullChecks": true, // enable strict null checks as a best practice
+    "module": "es6", // specify module code generation
+    "jsx": "react", // use typescript to transpile jsx to js
+    "target": "es6", // specify ECMAScript target version
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    // allow a partial TypeScript and JavaScript codebase
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "paths": {
+      "src/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.test.ts"]
+}
