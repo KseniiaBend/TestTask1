@@ -1,32 +1,27 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
-} from "react-router-dom";
-import { connect } from "react-redux";
-import LoaderComponent from "./components/loader/LoaderComponent";
-import SetsContainer from "./containers/sets/SetsContainer";
-import CardsContainer from "./containers/cards/CardsContainer";
+import React from 'react';
+import LoaderComponent from './components/loader/LoaderComponent';
+import SetsContainer from './containers/sets';
+import CardsContainer from './containers/cards';
 
-const App = ({ isLoading }) => {
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+
+const App = () => {
+  const isLoading = useSelector(({ app }) => app.isLoading);
+
   return (
     <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Redirect to="/sets" />
-          </Route>
-          <Route path="/sets" component={SetsContainer} />
-          <Route path="/cards/:setCode" component={CardsContainer} />
-        </Switch>
-      </Router>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigate to="/sets" />} replace />
+          <Route path="/sets" element={<SetsContainer />} />
+          <Route path="/cards/:setCode" element={<CardsContainer />} />
+        </Routes>
+      </BrowserRouter>
       {isLoading && <LoaderComponent />}
     </div>
   );
 };
 
-export default connect(state => ({
-  isLoading: state.app.isLoading
-}))(App);
+export default App;
