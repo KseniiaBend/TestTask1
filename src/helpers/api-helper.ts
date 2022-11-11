@@ -1,4 +1,4 @@
-import { setLoading } from 'src/actions/app';
+import { setLoading, setError } from 'src/actions/app';
 import { handleFetchProps } from 'src/types/api';
 
 export const handleFetch = async ({
@@ -8,6 +8,8 @@ export const handleFetch = async ({
   type
 }: handleFetchProps): Promise<any> => {
   dispatch(setLoading(true));
+  dispatch(setError(false, ''));
+
   const response = await fetch(url);
 
   if (response.ok) {
@@ -17,5 +19,5 @@ export const handleFetch = async ({
     });
   }
   dispatch(setLoading(false));
-  throw new Error(`An error has occurred: ${response.status}`);
+  dispatch(setError(true, String(response.status)));
 };

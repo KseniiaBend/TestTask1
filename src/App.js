@@ -1,5 +1,6 @@
 import React from 'react';
-import LoaderComponent from './components/loader/LoaderComponent';
+import LoaderComponent from './components/loader';
+import ErrorComponent from './components/error';
 import SetsContainer from './containers/sets';
 import CardsContainer from './containers/cards';
 
@@ -9,6 +10,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 const App = () => {
   const isLoading = useSelector(({ app }) => app.isLoading);
+  const hasError = useSelector(({ app }) => app.hasError);
+  const errorStatus = useSelector(({ app }) => app.errorStatus);
 
   return (
     <div className="App">
@@ -20,6 +23,7 @@ const App = () => {
         </Routes>
       </BrowserRouter>
       {isLoading && <LoaderComponent />}
+      {hasError && <ErrorComponent status={errorStatus} />}
     </div>
   );
 };
