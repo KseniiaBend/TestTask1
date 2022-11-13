@@ -1,4 +1,4 @@
-import { defaultAction } from 'src/types/actions';
+import { defaultAction } from './types';
 import { ADD_SETS } from './actionTypes';
 
 export const addSets = (sets): defaultAction => ({

@@ -1,13 +1,12 @@
-import { defaultAction, errorAction } from 'src/types/actions';
+import { defaultAction } from './types';
 import { SET_LOADING, SET_ERROR } from './actionTypes';
 
-export const setLoading = (state): defaultAction => ({
+export const setLoading = (isLoading): defaultAction => ({
   type: SET_LOADING,
-  payload: state
+  payload: isLoading
 });
 
-export const setError = (hasError, errorStatus): errorAction => ({
+export const setError = (error): defaultAction => ({
   type: SET_ERROR,
-  hasError,
-  errorStatus
+  payload: error
 });

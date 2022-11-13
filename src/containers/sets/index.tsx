@@ -1,27 +1,16 @@
-import React, { useCallback, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import { addSets } from 'src/actions/sets';
-import { handleFetch } from 'src/helpers/api-helper';
 import { SETS_URL } from 'src/api-config';
 import SetsComponent from 'src/components/sets';
+import { SETS } from 'src/utils/constants';
+import useLoadData from 'src/hooks/useLoadData';
+import { addSets } from 'src/actions/sets';
 
 const SetsContainer = () => {
-  const dispatch = useDispatch();
   const sets = useSelector(({ sets }) => sets);
 
-  const fetchSets = useCallback(() => {
-    handleFetch({
-      dispatch,
-      action: addSets,
-      url: SETS_URL,
-      type: 'sets'
-    }).catch();
-  }, [dispatch]);
-
-  useEffect(() => {
-    fetchSets();
-  }, [fetchSets]);
+  useLoadData({ url: SETS_URL, model: SETS, action: addSets });
 
   return <SetsComponent sets={sets} />;
 };

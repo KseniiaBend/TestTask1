@@ -1,7 +1,9 @@
-import { SET_LOADING, SET_ERROR } from '../actions/actionTypes';
+import { SET_LOADING, SET_ERROR } from 'src/actions/actionTypes';
 
 const initialState = {
-  isLoading: false
+  isLoading: false,
+  hasError: false,
+  errorStatus: ''
 };
 
 const appReducer = (state = initialState, action) => {
@@ -12,7 +14,7 @@ const appReducer = (state = initialState, action) => {
         isLoading: action.payload
       };
     case SET_ERROR: {
-      const { hasError, errorStatus } = action;
+      const { hasError, errorStatus } = action.payload;
 
       return {
         ...state,

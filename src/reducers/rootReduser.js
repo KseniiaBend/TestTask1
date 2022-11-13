@@ -1,7 +1,7 @@
-import { combineReducers } from "redux";
-import appReducer from "./app";
-import cardsReducer from "./cards";
-import setsReducer from "./sets";
+import { combineReducers } from 'redux';
+import appReducer from './app';
+import cardsReducer from './cards';
+import setsReducer from './sets';
 
 const rootReducer = combineReducers({
   app: appReducer,
