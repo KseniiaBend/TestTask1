@@ -1,6 +1,6 @@
 import React from 'react';
 import App from './App';
-import rootReducer from './reducers/rootReduser';
+import rootReducer from './redux/reducers/rootReduser';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 

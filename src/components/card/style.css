@@ -1,0 +1,22 @@
+.singleCardContainer {
+    gap: 100px;
+    padding: 100px 100px 20px;
+    background: #f7f7f7;
+    height: 100vh;
+}
+
+.cardInfoContainer {
+    flex-direction: column;
+}
+
+.cardInfoContainer > div {
+    font-size: 1.5em;
+    font-weight: 300;
+    display: flex;
+    align-items: baseline;
+}
+
+.cardInfoContainer > div > p {
+    font-weight: 400;
+    color: #72358c;
+}

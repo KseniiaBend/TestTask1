@@ -1,4 +1,4 @@
-import { SET_LOADING, SET_ERROR } from 'src/actions/actionTypes';
+import { SET_LOADING, SET_ERROR } from 'src/redux/actions/actionTypes';
 
 const initialState = {
   isLoading: false,

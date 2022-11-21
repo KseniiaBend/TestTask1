@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CARDS } from 'src/utils/constants';
 import { Set } from './types';
 
 const SetComponent = ({
@@ -12,7 +13,7 @@ const SetComponent = ({
   expandedLegal,
   symbolUrl
 }: Set) => (
-  <Link to={`/cards/${code}`} className="link set flex">
+  <Link to={`/${CARDS}/${code}`} className="link set flex">
     <div className="mainImageContainer">
       <img alt="Set" className="mainImage" src={logoUrl} />
     </div>

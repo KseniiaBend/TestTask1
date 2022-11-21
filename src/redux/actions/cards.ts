@@ -5,3 +5,8 @@ export const addCards = (cards): defaultAction => ({
   type: ADD_CARDS,
   payload: cards
 });
+
+export const addCard = (card): defaultAction => ({
+  type: ADD_CARD,
+  payload: card
+});

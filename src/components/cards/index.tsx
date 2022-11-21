@@ -1,6 +1,8 @@
 import React from 'react';
 import './styles.css';
 import { Cards } from './types';
+import { Link } from 'react-router-dom';
+import { CARDS } from 'src/utils/constants';
 
 const CardsComponent = ({ cards }: Cards) => (
   <div className="cardContainer">
@@ -8,9 +10,9 @@ const CardsComponent = ({ cards }: Cards) => (
       const { id, imageUrl, name } = card;
 
       return (
-        <div className="card" key={id}>
+        <Link className="card link" to={`/${CARDS}/card/${id}`} key={id}>
           <img alt={name} src={imageUrl} />
-        </div>
+        </Link>
       );
     })}
   </div>

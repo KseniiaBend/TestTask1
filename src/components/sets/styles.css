@@ -1,17 +1,8 @@
-.flex {
-  display: flex;
-}
-
 .setContainer {
   flex-wrap: wrap;
   justify-content: center;
   color: #4a4a4a;
   margin: 2em auto;
-}
-
-.link {
-  text-decoration: none;
-  color: inherit;
 }
 
 .set {

@@ -1,8 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { useCallback, useEffect } from 'react';
-import { setLoading, setError } from 'src/actions/app';
+import { setLoading, setError } from 'src/redux/actions/app';
+import { NOT_FOUND } from 'src/utils/constants';
+import { useLoadDataProps } from './types';
 
-const useLoadData = ({ url, model, action }) => {
+const useLoadData = ({ url, model, action, needRender = true }: useLoadDataProps): void => {
   const dispatch = useDispatch();
 
   const fetchData = useCallback(async () => {
@@ -23,8 +25,10 @@ const useLoadData = ({ url, model, action }) => {
   }, [action, dispatch, model, url]);
 
   useEffect(() => {
-    fetchData().catch();
-  }, [fetchData]);
+    if (!needRender) return;
+
+    fetchData().catch(() => dispatch(setError({ hasError: true, errorStatus: NOT_FOUND })));
+  }, [fetchData, needRender, dispatch]);
 };
 
 export default useLoadData;

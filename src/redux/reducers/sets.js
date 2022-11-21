@@ -1,4 +1,4 @@
-import { ADD_SETS } from 'src/actions/actionTypes';
+import { ADD_SETS } from 'src/redux/actions/actionTypes';
 
 const setsReducer = (state = [], action) => {
   switch (action.type) {
