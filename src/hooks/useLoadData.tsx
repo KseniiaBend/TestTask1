@@ -16,18 +16,18 @@ const useLoadData = ({ url, model, action, needRender = true }: useLoadDataProps
     if (response.ok) {
       return await response.json().then((data) => {
         dispatch(action(data[model]));
-        dispatch(setLoading(false));
       });
     }
 
-    dispatch(setLoading(false));
     dispatch(setError({ hasError: true, errorStatus: String(response.status) }));
   }, [action, dispatch, model, url]);
 
   useEffect(() => {
     if (!needRender) return;
 
-    fetchData().catch(() => dispatch(setError({ hasError: true, errorStatus: NOT_FOUND })));
+    fetchData()
+      .catch(() => dispatch(setError({ hasError: true, errorStatus: NOT_FOUND })))
+      .finally(() => dispatch(setLoading(false)));
   }, [fetchData, needRender, dispatch]);
 };
 

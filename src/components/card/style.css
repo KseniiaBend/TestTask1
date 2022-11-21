@@ -1,7 +1,6 @@
 .singleCardContainer {
     gap: 100px;
     padding: 100px 100px 20px;
-    background: #f7f7f7;
     height: 100vh;
 }
 
@@ -19,4 +18,16 @@
 .cardInfoContainer > div > p {
     font-weight: 400;
     color: #72358c;
+}
+
+@media (max-width: 768px) {
+    .singleCardContainer {
+        padding: 24px 0 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+    .cardInfoContainer > div {
+        font-size: 1em;
+    }
 }
