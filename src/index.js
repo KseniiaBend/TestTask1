@@ -7,10 +7,11 @@ import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, composeWithDevTools());
 
 root.render(
   <Provider store={store}>
