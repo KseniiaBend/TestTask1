@@ -1,7 +1,12 @@
 import { createSelector } from 'reselect';
 
 export const selectPage = (state: any): any => state.cards;
-export const selectCards = createSelector(selectPage, ({ cards }) => cards);
+export const selectSetCode = createSelector(selectPage, ({ code }) => code);
+export const selectCards = createSelector(
+  selectPage,
+  selectSetCode,
+  ({ cards }, code) => cards[code] || []
+);
 export const selectCard = createSelector(selectPage, ({ card }) => card);
 export const selectPokemonWeaknesses = createSelector(selectCard, ({ weaknesses = [] }) =>
   weaknesses.map(({ type }) => type).join(', ')

@@ -4,7 +4,7 @@ import { setLoading, setError } from 'src/redux/actions/app';
 import { NOT_FOUND } from 'src/utils/constants';
 import { useLoadDataProps } from './types';
 
-const useLoadData = ({ url, model, action, needRender = true }: useLoadDataProps): void => {
+const useLoadData = ({ url, model, action, needRequest }: useLoadDataProps): void => {
   const dispatch = useDispatch();
 
   const fetchData = useCallback(async () => {
@@ -23,12 +23,16 @@ const useLoadData = ({ url, model, action, needRender = true }: useLoadDataProps
   }, [action, dispatch, model, url]);
 
   useEffect(() => {
-    if (!needRender) return;
+    if (needRequest) {
+      fetchData()
+        .catch(() => dispatch(setError({ hasError: true, errorStatus: NOT_FOUND })))
+        .finally(() => dispatch(setLoading(false)));
+    }
 
-    fetchData()
-      .catch(() => dispatch(setError({ hasError: true, errorStatus: NOT_FOUND })))
-      .finally(() => dispatch(setLoading(false)));
-  }, [fetchData, needRender, dispatch]);
+    return () => {
+      dispatch(setError({ hasError: false, errorStatus: '' }));
+    };
+  }, [dispatch, fetchData, needRequest]);
 };
 
 export default useLoadData;

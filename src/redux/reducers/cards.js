@@ -1,8 +1,9 @@
-import { ADD_CARDS, ADD_CARD } from 'src/redux/actions/actionTypes';
+import { ADD_CARDS, ADD_CARD, ADD_CURRENT_SET_CODE } from 'src/redux/actions/actionTypes';
 
 const initialState = {
-  cards: [],
-  card: {}
+  cards: {},
+  card: {},
+  code: ''
 };
 
 const cardsReducer = (state = initialState, action) => {
@@ -10,7 +11,10 @@ const cardsReducer = (state = initialState, action) => {
     case ADD_CARDS:
       return {
         ...state,
-        cards: action.payload
+        cards: {
+          ...state.cards,
+          [state.code]: action.payload
+        }
       };
     case ADD_CARD: {
       const { payload } = action;
@@ -19,6 +23,11 @@ const cardsReducer = (state = initialState, action) => {
         card: Array.isArray(payload) ? payload[0] : payload
       };
     }
+    case ADD_CURRENT_SET_CODE:
+      return {
+        ...state,
+        code: action.payload
+      };
     default:
       return state;
   }

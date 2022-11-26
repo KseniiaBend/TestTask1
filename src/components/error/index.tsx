@@ -7,7 +7,7 @@ const ErrorComponent = ({ status }: { status: string }) => (
   <div className="errorContainer">
     <p>ERROR</p>
     <p className="errorStatus">{status}</p>
-    {status === TOO_MANY_REQUESTS && <p>Request is throttled, please, rerender or wait!</p>}
+    {status === TOO_MANY_REQUESTS && <p>Sorry, request is throttled!</p>}
     <img src={image} alt="error" />
   </div>
 );

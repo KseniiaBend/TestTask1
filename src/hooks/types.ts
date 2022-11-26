@@ -5,5 +5,5 @@ export interface useLoadDataProps {
   action: (payload: any) => defaultAction;
   url: string;
   model: string;
-  needRender?: boolean;
+  needRequest: boolean;
 }

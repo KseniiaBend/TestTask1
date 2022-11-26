@@ -7,11 +7,12 @@ import { SETS } from 'src/utils/constants';
 import useLoadData from 'src/hooks/useLoadData';
 import { addSets } from 'src/redux/actions/sets';
 import { selectSets } from 'src/redux/selectors/sets';
+import { getUrl } from 'src/helpers/url';
 
 const SetsContainer = () => {
   const sets = useSelector(selectSets);
 
-  useLoadData({ url: SETS_URL, model: SETS, action: addSets });
+  useLoadData({ url: getUrl(SETS_URL), model: SETS, action: addSets, needRequest: !sets.length });
 
   return <SetsComponent sets={sets} />;
 };
