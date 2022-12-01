@@ -23,18 +23,14 @@ const CardContainer = () => {
   const card = useSelector(selectCard);
   const { name, supertype, imageUrl } = card;
 
-  const getFeatures = (feat, name) => (
+  const getFeature = ({ feat, name }) => (
     <div key={feat}>
       <p>{feat}</p>: {name}
     </div>
   );
 
-  const trainerFeatures = useSelector(selectTrainerFeatures).map(({ feat, name }) =>
-    getFeatures(feat, name)
-  );
-  const pokemonFeatures = useSelector(selectPokemonFeatures).map(({ feat, name }) =>
-    getFeatures(feat, name)
-  );
+  const trainerFeatures = useSelector(selectTrainerFeatures).map(getFeature);
+  const pokemonFeatures = useSelector(selectPokemonFeatures).map(getFeature);
 
   const features = supertype === POKEMON ? pokemonFeatures : trainerFeatures;
 
