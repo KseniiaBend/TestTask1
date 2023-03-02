@@ -6,9 +6,8 @@ import CardsContainer from './containers/cards';
 import CardContainer from './containers/card';
 import { selectErrorStatus, selectHasError, selectIsLoading } from './redux/selectors/app';
 
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 
 const App = () => {
   const isLoading = useSelector(selectIsLoading);
