@@ -1,8 +1,13 @@
 import React from 'react';
 import './style.css';
-import { Card } from './types';
 
-const CardComponent = ({ imageUrl, name, features }: Card): JSX.Element => {
+interface ICard {
+  name: string;
+  imageUrl: string;
+  features: JSX.Element[];
+}
+
+const CardComponent = ({ imageUrl, name, features }: ICard): JSX.Element => {
   return (
     <div className="singleCardContainer flex">
       <div>

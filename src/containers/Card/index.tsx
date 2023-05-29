@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Card from 'src/components/card';
+import Card from 'src/components/Card';
 import { addCard, addCurrentSetCode } from 'src/redux/actions/cards';
 import { CARDS_URL } from 'src/api-config';
 import {

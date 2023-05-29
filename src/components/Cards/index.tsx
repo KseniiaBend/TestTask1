@@ -1,10 +1,19 @@
 import React from 'react';
 import './styles.css';
-import { Cards } from './types';
 import { Link } from 'react-router-dom';
 import { CARDS } from 'src/utils/constants';
 
-const CardsComponent = ({ cards }: Cards) => (
+type Card = {
+  name: string;
+  imageUrl: string;
+  id: string;
+};
+
+interface ICards {
+  cards: Card[];
+}
+
+const CardsComponent = ({ cards }: ICards) => (
   <div className="cardContainer">
     {cards.map((card) => {
       const { id, imageUrl, name } = card;

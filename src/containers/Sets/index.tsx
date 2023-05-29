@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { SETS_URL } from 'src/api-config';
-import SetsComponent from 'src/components/sets';
+import SetsComponent from 'src/components/Sets';
 import { SETS } from 'src/utils/constants';
 import useLoadData from 'src/hooks/useLoadData';
 import { addSets } from 'src/redux/actions/sets';

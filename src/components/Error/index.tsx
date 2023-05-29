@@ -3,7 +3,11 @@ import { TOO_MANY_REQUESTS } from 'src/utils/constants';
 import image from './egg-error.png';
 import './styles.css';
 
-const ErrorComponent = ({ status }: { status: string }) => (
+interface IErrorComponent {
+  status: string;
+}
+
+const ErrorComponent = ({ status }: IErrorComponent) => (
   <div className="errorContainer">
     <p>ERROR</p>
     <p className="errorStatus">{status}</p>

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { addCards, addCurrentSetCode } from 'src/redux/actions/cards';
 import { CARDS_URL } from 'src/api-config';
-import CardsComponent from 'src/components/cards';
+import CardsComponent from 'src/components/Cards';
 import useLoadData from 'src/hooks/useLoadData';
 import { CARDS } from 'src/utils/constants';
 import { selectCards, selectSetCode } from 'src/redux/selectors/cards';
