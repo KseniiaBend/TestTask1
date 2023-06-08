@@ -7,15 +7,13 @@ interface ICard {
   features: JSX.Element[];
 }
 
-const CardComponent = ({ imageUrl, name, features }: ICard): JSX.Element => {
-  return (
-    <div className="singleCardContainer flex">
-      <div>
-        <img alt={name} src={imageUrl} />
-      </div>
-      <div className="cardInfoContainer flex">{features}</div>
+const CardComponent = ({ imageUrl, name, features }: ICard): JSX.Element => (
+  <div className="singleCardContainer flex">
+    <div>
+      <img alt={name} src={imageUrl} />
     </div>
-  );
-};
+    <div className="cardInfoContainer flex">{features}</div>
+  </div>
+);
 
 export default CardComponent;
